@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     private Current mCurrent;
     private Forecast mForecast;
+    public static final String DAILY_FORECAST = "DAILY_FORECAST";
 
     @Bind(R.id.time_label)
     TextView mTimeLabel;
@@ -91,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        int hour = cal.get(Calendar.HOUR_OF_DAY) - 1;
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
         //int minute = cal.get(Calendar.MINUTE);
         //int second = cal.get(Calendar.SECOND);
         Log.i(TAG, hour + "");
 
         if (hour >= 6 && hour < 12) {
             mMainLayout.setBackgroundResource(R.drawable.bg_gradient_morning);
-        } else if (hour >= 12 && hour < 7) {
+        } else if (hour >= 12 && hour < 19) {
             mMainLayout.setBackgroundResource(R.drawable.bg_gradient_evening);
         } else {
             mMainLayout.setBackgroundResource(R.drawable.bg_gradient_night);
@@ -314,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startDailyActivity(View view) {
         Intent intent = new Intent(this, DailyForecastActivity.class);
+        intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
         startActivity(intent);
 
     }
