@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 
 import com.example.android.stormy.R;
+import com.example.android.stormy.adapters.DayAdapter;
+import com.example.android.stormy.weather.Day;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +21,8 @@ public class DailyForecastActivity extends ListActivity {
 
     @Bind(R.id.daily_layout)
     RelativeLayout mDailyLayout;
+
+    private Day[] mDays;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +49,12 @@ public class DailyForecastActivity extends ListActivity {
 
 
 
+        DayAdapter adapter = new DayAdapter(this, mDays);
 
 
-        String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-                "Saturday"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,
-                daysOfWeek);
 
-        setListAdapter(adapter);
+
+        ;
     }
 
 
