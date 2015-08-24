@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                tools:background="@drawable/bg_gradient_evening">
+
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/time_label"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        tools:text="12 pm"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/icon_imageview"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/time_label"
+        android:src="@drawable/sunny"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/temperature_label"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        tools:text="100"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/summary_label"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/icon_imageview"
+        android:textColor="#ffffff"
+        android:layout_toLeftOf="@id/temperature_label"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        tools:text="sunny"/>
+</RelativeLayout>

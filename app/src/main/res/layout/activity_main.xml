@@ -171,6 +171,7 @@
             android:layout_weight="1"
             android:background="#40FFFFFF"
             android:text="hourly"
+            android:onClick="startHourlyActivity"
             android:textColor="#FFFFFF"/>
 
         <Button

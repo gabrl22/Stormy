@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private Current mCurrent;
     private Forecast mForecast;
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
+    public static final String HOURLY_FORECAST = "HOURLY_FORECAST";
 
     @Bind(R.id.time_label)
     TextView mTimeLabel;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar mProgressBar;
     @Bind(R.id.daily_button)
     Button mDailyButton;
+
+
     @Bind(R.id.main_layout)
     RelativeLayout mMainLayout;
 
@@ -318,6 +321,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
         startActivity(intent);
 
+    }
+    public void startHourlyActivity(View view){
+        Intent intent = new Intent(this, HourlyForecastActivity.class);
+        intent.putExtra(HOURLY_FORECAST, mForecast.getHourlyForecast());
+        startActivity(intent);
     }
 
 }
