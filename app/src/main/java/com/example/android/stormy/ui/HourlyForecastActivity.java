@@ -48,8 +48,6 @@ public class HourlyForecastActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int hour = cal.get(Calendar.HOUR_OF_DAY);
-        //int minute = cal.get(Calendar.MINUTE);
-        //int second = cal.get(Calendar.SECOND);
         Log.i(a.TAG, hour + "");
 
         if (hour >= 6 && hour < 12) {

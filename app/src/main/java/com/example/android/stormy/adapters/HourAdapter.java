@@ -15,6 +15,8 @@ import com.example.android.stormy.weather.Hour;
 /**
  * Created by Gabriel on 8/23/15.
  */
+
+//En los recyclerview, las acciones de click son administradas en el mismo adaptador
 public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder>  {
 
 

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private Current mCurrent;
-    private Forecast mForecast;
+    private Forecast mForecast;//Objeto wur contiene el arreglo de dias y horas Y corriente
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
     public static final String HOURLY_FORECAST = "HOURLY_FORECAST";
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.main_layout)
     RelativeLayout mMainLayout;
 
-    //Hola
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int hour = cal.get(Calendar.HOUR_OF_DAY);
-        //int minute = cal.get(Calendar.MINUTE);
-        //int second = cal.get(Calendar.SECOND);
         Log.i(TAG, hour + "");
 
         if (hour >= 6 && hour < 12) {
@@ -120,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         //Se hace una condicion para ver si la red esta disponible
         if (ifNetworkAvailable()) {
 
-            toggleRefresh();
+            toggleRefresh(); //Da a la vista el progressbar y esconder la imagen de actualizar
 
             //Inicia la comunicacion
             OkHttpClient client = new OkHttpClient();//Inicia el cliente
@@ -149,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
                     /*Si la respuesta es correcta se llama al thread principal para que haga un
                     * cambio en la interface(solamente se puede modificar la interface en el thread
-                    * principal de la aplicacion)*/
+                    * principal de la aplicacion)  RUNONUITHREAD*/
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -185,9 +183,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
 
             //Este codigo corre si no hay red
-            NetworkUnavailableDialogFragment dialog = new NetworkUnavailableDialogFragment();
-            dialog.show(getFragmentManager(), "network_unavailable");
+            NoNetWrokMessage();
         }
+    }
+
+    private void NoNetWrokMessage() {
+        NetworkUnavailableDialogFragment dialog = new NetworkUnavailableDialogFragment();
+        dialog.show(getFragmentManager(), "network_unavailable");
     }
 
     private void toggleRefresh() {

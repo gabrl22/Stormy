@@ -10,6 +10,7 @@ import java.util.TimeZone;
 /**
  * Created by Gabriel on 08/20/15.
  */
+//Hay que implementar la interface Parcelable para poder pasar objetos atraves de los intent
 public class Day implements Parcelable{
 
     private long mTime;
